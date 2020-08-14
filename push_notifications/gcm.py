@@ -86,7 +86,7 @@ def _cm_handle_response(registration_ids, response_data, cloud_type, application
 				# If error is NotRegistered or InvalidRegistration, then we will deactivate devices
 				# because this registration ID is no more valid and can't be used to send messages,
 				# otherwise raise error
-				if error in ("NotRegistered", "InvalidRegistration"):
+				if error in ("NotRegistered", "InvalidRegistration", "MismatchSenderId"):
 					ids_to_remove.append(registration_ids[index])
 				else:
 					throw_error = True
